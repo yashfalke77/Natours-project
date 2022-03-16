@@ -1,0 +1,47 @@
+//  We define a root font size in pixel then write in relative rems who depends on font size of root so if any change needed , then we can change the font size of root directly
+
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+
+	@include respond(tab-land) {
+		font-size: 56.25%; // 1rem = 9px
+	}
+
+	@include respond(tab-port) {
+		font-size: 50%; // 1rem = 8px
+	}
+
+	@include respond(big-desktop) {
+		font-size: 75%; // 1rem = 12px
+	}
+}
+
+body {
+	font-family: 'Gilroy', sans-serif;
+	font-weight: 500;
+	font-size: 1.6rem;
+	line-height: 1.7;
+	color: $color-grey-dark;
+	padding: 3rem;
+	box-sizing: border-box;
+
+	@include respond(tab-port) {
+		padding: 0rem;
+	}
+}
+
+::selection {
+	background-color: $color-primary;
+	color: $color-white;
+}
+// default font size of browser body is 16px
+// 10 px wil be ideal so 1rem = 10px

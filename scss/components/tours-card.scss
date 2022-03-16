@@ -1,0 +1,165 @@
+@import "../abstracts/variables";
+.card {
+	// perspective used for rotate 180 deg get more real
+	perspective: 150rem;
+	-moz-perspective: 150rem;
+	position: relative;
+	height: 50rem;
+
+	// functionality
+	&__side {
+		height: 50rem;
+		transition: all 0.8s ease-in-out;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		backface-visibility: hidden;
+		border-radius: 3px;
+		overflow: hidden;
+		// since image is overflowing over card , thats why we are using overfflow hidden
+		box-shadow: 0rem 1.5rem 4rem rgba($color-black, $alpha: 0.15);
+		// hides the back side part
+
+		&--front {
+			background-color: white;
+		}
+
+		&--back {
+			transform: rotateY(180deg);
+			background-color: green;
+
+			&-1 {
+				background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+			}
+			&-2 {
+				background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
+			}
+			&-3 {
+				background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+			}
+		}
+	}
+
+	&:hover &__side--front {
+		transform: rotateY(-180deg);
+	}
+
+	&:hover &__side--back {
+		transform: rotateY(0deg);
+	}
+
+	// Front styling
+	&__picture {
+		background-size: cover;
+		height: 23rem;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		// to avoid repitation for 1 and and 3
+
+		&-1 {
+			background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+				url('../images/nat-5.jpg');
+			background-blend-mode: screen;
+			-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); // using this so clip path works in all browsers
+			clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		}
+		&-2 {
+			background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+				url('../images/nat-6.jpg');
+			background-blend-mode: screen;
+			-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); // using this so clip path works in all browsers
+			clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		}
+		&-3 {
+			background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+				url('../images/nat-7.jpg');
+			background-blend-mode: screen;
+			-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); // using this so clip path works in all browsers
+			clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		}
+	}
+
+	&__heading {
+		font-size: 2.8rem;
+		font-weight: 300;
+		color: white;
+		position: absolute;
+		top: 12rem;
+		right: 2rem;
+		text-align: right;
+		text-transform: uppercase;
+		width: 70%;
+
+		&-span {
+			padding: 1rem 1.4rem;
+			-webkit-box-decoration-break: clone;
+			box-decoration-break: clone; // makes anew line for a single element
+
+			&--1 {
+				background-image: linear-gradient(
+					to right bottom,
+					rgba($color-secondary-light, .85),
+					rgba($color-secondary-dark, .85)
+				);
+			}
+
+			&--2 {
+				background-image: linear-gradient(
+					to right bottom,
+					rgba($color-primary-light, .85),
+					rgba($color-primary-dark, .85)
+				);
+			}
+
+			&--3 {
+				background-image: linear-gradient(
+					to right bottom,
+					rgba($color-tertiary-light, .85),
+					rgba($color-tertiary-dark, .85)
+				);
+			}
+		}
+	}
+
+	&__details {
+		ul {
+			list-style: none;
+			width: 80%;
+			margin: 0 auto;
+
+			li {
+				text-align: center;
+				font-size: 1.5rem;
+				padding: 1rem;
+
+				&:not(:last-child) {
+					border-bottom: 1px solid $color-dark-grey;
+				}
+			}
+		}
+	}
+
+	// BACK side Styling
+	&__cta {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__price-box {
+		text-align: center;
+		color: $color-white;
+		margin-bottom: 8rem;
+	}
+
+	&__price-only {
+		font-size: 1.4rem;
+		text-transform: uppercase;
+	}
+	&__price-value {
+		font-size: 6rem;
+		font-weight: 500;
+	}
+}

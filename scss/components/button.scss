@@ -1,0 +1,100 @@
+// psuedo classes , styling elements under special conditions
+@import "../abstracts/variables";
+
+.btn {
+	&,
+	&:link,
+	&:visited {
+		text-decoration: none;
+		padding: 1.5rem 4rem;
+		display: inline-block;
+		border-radius: 10rem;
+		transition: all .2s ease-in-out;
+		font-size: 1.6rem;
+		position: relative;
+
+		// changes for the button
+		border: none;
+		cursor: pointer;
+	}
+
+	&--white {
+		background-color: $color-white;
+		color: $color-grey-dark;
+
+		&::after {
+			background-color: $color-white;
+		}
+	}
+
+	&--green {
+		background-color: $color-primary-light;
+		color: $color-white;
+
+		&::after {
+			background-color: $color-primary-light;
+		}
+	}
+
+	&:hover {
+		transform: translateY(-0.3rem);
+		box-shadow: 0rem 0.7rem 2rem rgba($color-black, $alpha: 0.2);
+
+		&::after {
+			transform: scaleX(1.4) scaleY(1.5);
+			opacity: 0;
+		}
+	}
+
+	&:active,
+	&:focus {
+		outline: none;
+		transform: translateY(-0.1rem);
+		box-shadow: 0 0.5rem 1rem rgba($color-black, $alpha: 0.2);
+	}
+
+	// visited is a state when user clicked a button one time already and then again seeing button
+	// to have pseudo elements we must have content and display
+
+	&::after {
+		content: "";
+		display: inline-block;
+		height: 100%;
+		width: 100%;
+		border-radius: 10rem;
+		position: absolute; // hiding behind button
+		top: 0;
+		left: 0;
+		z-index: -1;
+		transition: all 0.4s ease-in-out;
+	}
+
+	&--animated {
+		animation: moveInButton 0.5s ease-out 0.75s;
+		animation-fill-mode: backwards;
+	}
+}
+
+.btn-text {
+	&:link,
+	&:visited {
+		color: $color-primary;
+		display: inline-block;
+		text-decoration: none;
+		border-bottom: 1px solid $color-primary;
+		padding: 3px;
+		transition: all .2s ease-in-out;
+	}
+
+	&:hover {
+		background-color: $color-primary;
+		color: $color-white;
+		transform: translateY(-0.3rem);
+		box-shadow: 0rem 0.7rem 2rem rgba($color-black, $alpha: 0.2);
+	}
+
+	&:active {
+		transform: translateY(-0.1rem);
+		box-shadow: 0 0.5rem 1rem rgba($color-black, $alpha: 0.2);
+	}
+}

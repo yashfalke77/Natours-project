@@ -1,0 +1,46 @@
+//  browser is optimized for opacity and transform only
+
+@keyframes moveInLeft {
+	// start
+	0% {
+		opacity: 0;
+		transform: translateX(-10rem);
+	}
+
+	// at any particular in between you want to animate
+	80% {
+		transform: translateX(1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+	// finish
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(10rem);
+	}
+	80% {
+		transform: translateX(-1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInButton {
+	0% {
+		transform: translateY(3rem);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}

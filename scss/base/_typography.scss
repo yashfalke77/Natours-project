@@ -1,0 +1,78 @@
+// from top and left 50% wil be start of child div , we want center so thats why */
+
+.headingPrimary {
+	color: $color-white;
+	text-transform: uppercase;
+	backface-visibility: hidden; //To remove shaky
+	margin-bottom: 6rem;
+
+	&--main {
+		display: block;
+		font-size: 6rem;
+		letter-spacing: 3.5rem;
+		animation-name: moveInLeft;
+		animation-duration: 1s;
+		animation-timing-function: ease-out;
+
+		/* animation-delay: 3s;
+		animation-iteration-count: 3; */
+
+		@include respond(phone) {
+			letter-spacing: 1rem;
+			font-size: 5rem;
+		}
+	}
+
+	// animation-delay: It will start animation after 3 seconds
+	// animation-iteration-count: animation will run 3 times
+	// animation-timing-function: how a css animation should progress over the duration of each cycle
+
+	&--sub {
+		display: block;
+		font-size: 2rem;
+		letter-spacing: 1.5rem;
+		font-weight: 500;
+		animation: moveInRight 1s ease-out;
+
+		@include respond(phone) {
+			letter-spacing: .5rem;
+		}
+	}
+}
+
+.heading-secondary {
+	font-size: 3.5rem;
+	text-transform: uppercase;
+	background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+	display: inline-block;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		transform: skewY(2deg) skewX(15deg);
+		text-shadow: 0.5rem 1rem 2rem rgba($color-black, $alpha: .2);
+	}
+
+	@include respond(tab-port) {
+		font-size: 3rem;
+	}
+
+	@include respond(phone) {
+		font-size: 2.5rem;
+	}
+}
+
+.heading-tertiary {
+	font-size: 1.6rem;
+	text-transform: uppercase;
+}
+
+.paragraph {
+	font-size: 1.6rem;
+
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+}

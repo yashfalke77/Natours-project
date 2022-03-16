@@ -1,0 +1,26 @@
+@import '../fonts/Gilroy-Medium/style.css';
+@import '../fonts/Gilroy-Bold/style.css';
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+@import "base/base";
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/button.scss";
+@import "components/composition.scss";
+@import "components/feature-card.scss";
+@import "components/tours-card.scss";
+@import "components/story.scss";
+@import "components/bg_video.scss";
+@import "components/form.scss";
+@import "components/popup.scss";
+
+@import "layouts/header";
+@import "layouts/grid";
+@import "layouts/footer";
+@import "layouts/navigation";
+
+@import "pages/home";

@@ -1,0 +1,45 @@
+//  background position top will always stays at the top of container only bottom of img will get cropped
+
+.header {
+	height: 85vh;
+	background-image: linear-gradient(to right bottom, rgba($color-primary, 0.8), rgba($color-primary-dark, 0.8)),
+		url('../images/hero.jpg');
+	background-size: cover;
+	background-position: top;
+
+	position: relative;
+
+	@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)) {
+		clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* always go clockwise */
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); // using this so clip path works in all browsers
+		height: 95vh;
+	}
+
+	// ----- Tool for clip art: https://bennettfeely.com/clippy/
+
+	@include respond(phone) {
+		clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); /* always go clockwise */
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+	}
+
+	&__logoBox {
+		position: absolute;
+		top: 4rem;
+		left: 4rem;
+	}
+
+	&__logo {
+		height: 3.5rem;
+	}
+
+	//  if we write height , width will be controlled by browser, same as reverse
+	//  so the top and left references from the parent element whose position is relative
+
+	&__textBox {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+}
